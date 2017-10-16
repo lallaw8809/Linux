@@ -1,0 +1,13 @@
+Message Queue :
+	
+Procedure to run the code :
+1) make Makefile
+2) ./send	
+	type 5 different messages to send
+3) ./receive
+	Will get the all of 5 messages.
+
+
+
+
+
