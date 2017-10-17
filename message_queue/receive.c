@@ -1,3 +1,7 @@
+/* Message Queue Sample code to receive data from sender
+ * Author : Lal Bosco Lawrence
+ */
+
 #include<stdio.h>
 #include<string.h>
 #include <sys/types.h>
