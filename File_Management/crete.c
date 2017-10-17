@@ -1,5 +1,5 @@
 /* Program to create file 
- * auther : Lal Bosco Lawrence   
+ * author : Lal Bosco Lawrence   
  */
 
 #include<stdio.h>
