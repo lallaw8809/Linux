@@ -1,8 +1,8 @@
 ############ Process management ###############
 
 create_new_process
-	fork.c  : Create a process using fork
-	vfork.c : Create a process using vfork
+	fork.c  : Create a new process using fork
+	vfork.c : Create a new process using vfork
 
 daemon_process
 	daemon.c : Create a daemon process and run it in background

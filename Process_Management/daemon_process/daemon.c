@@ -14,7 +14,7 @@
 #include <fcntl.h>
 
 /*Daemon Process
- *	daemon is a computer program that runs as a background process	
+ *	daemon is a process (program) that will run as a background process	
  */
 
 void main()
