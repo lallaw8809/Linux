@@ -17,5 +17,20 @@ daemon_process
 	*)To stop the daemon process
 		ps -ef | grep daemon
 		kill -9 <pid_of_daemon>
+
+process_id
+	process_id.c : Print process id's of the process
+
+Exe Family
+
+       Each system call (exec) is the word exec followed by either l or v and then possibly followed by either e or p.
+       int execl ( const char *path, const char *arg, ... );
+       int execlp( const char *file, const char *arg, ... );
+       int execle( const char *path, const char *arg, ..., char *const envp[] );
+       int execv ( const char *path, char *const argv[] );
+       int execvp( const char *file, char *const argv[] );
+       int execve( const char *file, char *const argv[], char *const envp[] );
+
+
 	
 
