@@ -1,16 +1,16 @@
-########### Process management ###############
+############ Process management ###############
 
 create_new_process
 	fork.c  : Create a process using fork
 	vfork.c : Create a process using vfork
 
 daemon_process
-	daemon.c : Create a process a daemon and run it in background
+	daemon.c : Create a daemon process and run it in background
   	
-	Procedure to validate the daemon process
+	Procedure to validate a daemon process
 	*) Run daemon.c (./daemon)
-	*) It will create a file ('daemon.txt') and write it 
-	   'Daemon process....' as it in the background process
+	*) It will create a file ('daemon.txt') and  
+	*) write it as a 'Daemon process....' into 'daemon.txt' for every sec in the background
 	*) To validate the ouput
 		'cat daemon.txt' 
 
