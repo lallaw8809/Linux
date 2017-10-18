@@ -4,3 +4,18 @@ create_new_process
 	fork.c  : Create a process using fork
 	vfork.c : Create a process using vfork
 
+daemon_process
+	daemon.c : Create a process a daemon and run it in background
+  	
+	Procedure to validate the daemon process
+	*) Run daemon.c (./daemon)
+	*) It will create a file ('daemon.txt') and write it 
+	   'Daemon process....' as it in the background process
+	*) To validate the ouput
+		'cat daemon.txt' 
+
+	*)To stop the daemon process
+		ps -ef | grep daemon
+		kill -9 <pid_of_daemon>
+	
+
