@@ -22,7 +22,8 @@ void main()
 	printf("\nvfork return value : %d\n",pid);
 
 	/* Child process */
-	if(pid == 0){
+	if(pid == 0)
+	{
 		printf("Child Process [Return value is 0]\n");
 		printf("	PID  : %d\n",getpid() );
 		printf("	PPID : %d\n\n",getppid() );
