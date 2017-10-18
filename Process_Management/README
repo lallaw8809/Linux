@@ -1,0 +1,6 @@
+########### Process management ###############
+
+create_new_process
+	fork.c  : Create a process using fork
+	vfork.c : Create a process using vfork
+
