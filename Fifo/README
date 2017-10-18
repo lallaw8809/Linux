@@ -1,0 +1,6 @@
+Program to communicate between the server and the client using fifo IPC
+
+Procedure to run the code
+1) make 
+2) ./server
+3) ./client
