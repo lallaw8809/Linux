@@ -19,7 +19,7 @@ daemon_process
 		kill -9 <pid_of_daemon>
 
 process_id
-	process_id.c : Print process id's of the process
+	process_id.c : Print the lsit of process id's
 
 Exe Family
 

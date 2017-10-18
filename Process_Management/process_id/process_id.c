@@ -1,5 +1,4 @@
-
-/* Program to print process ID's
+/* Program to print the lsit of process ID's
  * author : Lal Bosco Lawrence   
  * Date   : 18-oct-2017
  */
