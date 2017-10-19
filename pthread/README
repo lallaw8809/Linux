@@ -12,12 +12,12 @@ multithread  [Multi thread creation]
 	
 mutex :
 	method_1.c : 	
-		Create 5 differnet pthread with same thread_function_name and all of the 5 thread's tries to access
-		the common resource at the same time.
+		Create 5 differnet pthread with same thread_function_name and all of the 5
+		thread's tries to access the common resource at the same time.
 		Avoided the common resource corruption using mutex.
 	method_2.c : 	
-		Create 5 differnet pthread with different thread_function_name and all of the 5 thread's tries to access 
-		the common resource at the same time.
+		Create 5 differnet pthread with different thread_function_name and all of
+		the 5 thread's tries to access the common resource at the same time.
 		Avoided the common resource corruption using mutex.
 
 
