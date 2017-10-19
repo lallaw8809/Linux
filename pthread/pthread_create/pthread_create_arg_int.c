@@ -13,7 +13,7 @@ void* thread_function(void *arg)
 	while(1){
 		printf("Enter into the thread : %d\n",*((int *) arg));
 		sleep(1);
-		/* Exit the thread */
+		/* Exit the loop */
 		pthread_exit(NULL);
 	}
 	return NULL;

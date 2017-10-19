@@ -1,6 +1,13 @@
 ########### Pthread ########################
 
-pthread_create.c     : Create a thread
-pthread_create_arg.c : Create a thread and pass the argument as string
-pthread_create_int.c : Create a thread and pass the integer
+pthread_create [Thread creation]
+	pthread_create.c     : Create a thread
+	pthread_create_arg.c : Create a thread and pass the argument as string
+	pthread_create_int.c : Create a thread and pass the integer
+
+multithread  [Multi thread creation]
+	multithread_create.c   : How to create a multithread
+	multithread_run_md1.c  : How to run multithread parraly (method 1)
+	multithread_run_md2.c  : How to run multithread parraly (method 1)
+
 
