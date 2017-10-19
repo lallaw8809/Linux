@@ -1,0 +1,41 @@
+####################### PIPE ##############
+
+*) A pipe is a type of IPC, half duplex and can communicate between the related process.
+*) Pipe is to send the output of one process (STDOUT) to an another process (STDIN) 
+   for further processing. 
+
+Example :
+	$ cmd1 | cmd2 | cmd3
+	$ps -ef | grep <process_name>
+
+STDIN  (0) - Standard input (data fed into the program)
+STDOUT (1) - Standard output (data printed by the program, defaults to the terminal)
+STDERR (2) - Standard error (for error messages, also defaults to the terminal)
+
+Program :
+_________
+
+one_pipe.c : Communication between the process [Parent and child :Half duplex]
+	     Write it on the child
+	     Read it on the Parent
+	     Run the code  : <./one_pipe>  <msg>
+
+two_pipe.c : Communication between the process [Full duplex]
+	     Communication between two process using two pipes.
+	      Run the code  : ./one_chile   'Hello Parent'  'Hello child'
+
+Procedure to run the code
+--------------------------
+	$ make
+		This will creaate a binaries under bin directory
+
+	$make clean
+		This will clean the binaries
+
+
+
+
+
+
+
+
