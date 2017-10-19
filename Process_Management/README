@@ -6,6 +6,11 @@ create_new_process
 
 daemon_process
 	daemon.c : Create a daemon process and run it in background
+	
+	Approach:
+	1) Create a process using fork
+	2) Start a new section for child process
+	3) Run the child process as daemon
   	
 	Procedure to validate a daemon process
 	*) Run daemon.c (./daemon)
