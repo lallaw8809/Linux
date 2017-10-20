@@ -24,21 +24,15 @@ void main()
 	shm = shmat(shmid,NULL,0);
 	if(shm == (char*)-1)
 		error_message("shmat failed\n");
-	printf ("shared memory attached at address %p\n", shm); 
 
 	/* write the data into the memory */
 	memcpy(shm,STRING,strlen(STRING));
-#if 0
-	/* Temporary pointer to write the Null character */
-	char *ptr = shm;
-	ptr += strlen(STRING);
-	*ptr = '\0';
-#endif
+
 	/* read the shared memory */
 	while(*shm != '*');
 
 	/* free the memory segment */
-	//shmctl(shmid,IPC_RMID,0);
+	shmctl(shmid,IPC_RMID,0);
 }
 
 void error_message(char *message)

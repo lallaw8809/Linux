@@ -4,7 +4,8 @@ Shared memory :
 	Shared memory is the one of the simplest Inter Process Communication.
 	It allows one or more process to access the same memory address space (Logical memory).
 	When one process changes the memory, all the other processes see the modification.
-	Shared memory is the fastest interprocess communication because all processes share the same piece of memory.
+	Shared memory is the fastest interprocess communication because all processes share 
+	the same piece of memory.
 
 How does it Work:
 	To use a shared memory segment, one process must allocate the segment. 
@@ -30,10 +31,11 @@ int shmget(key_t key, size_t size, int shmflg);
 		  Fail   : -1
 
 void *shmat(int shm_id, const void *shm_addr, int shmflg);
-	To access to the shared memory,we must attach it to the address space of a process using shmat().
+	To access to the shared memory,we must attach it to the address space of
+	a process using shmat().
 	shm_id   : shared memory identifier returned from shmget.
-	shm_addr : Shared memory address at which the shared memory is to be attached to the current
-		   process.
+	shm_addr : Shared memory address at which the shared memory is to be attached 
+		   to the current process.
 		   NULL - allows the system to choose the address at which the memory appears.
 	shmflg   : SHM_RDONLY - Memory is read only
 		   SHM_RND    - controls the address at which the shared memory is attached 
