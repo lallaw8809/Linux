@@ -1,5 +1,5 @@
 /***********************************
- * Program to open file and read 
+ * Program to open file and read using lseek and SEEK_END,SEEK_CUR and SEEK_SET
  * Author : Lal Bosco Lawrence   
  * Date   : 20-oct-2017 
  **********************************/
@@ -8,13 +8,14 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void error_message(char *message);
 
 void main(int argc, char *argv[])
 {
-	int fd;
-	char buf[BUFSIZ];
+	int fd, num_of_bytes, index = 0;
+	char buf;
 
 	/* Validation of input */
 	if(argc != 2)
@@ -28,14 +29,22 @@ void main(int argc, char *argv[])
 	if( (fd = open(argv[1], O_RDONLY, 0777)) < 0)
 		error_message("Unable to open the file.. Please check, if the file is exit");
 
-	/* read the file */
-	if( read(fd,buf,BUFSIZ ) < 0)
-		error_message("Unable to read the file");
-
-	/* this will terminate string with \0 
-	 * To read the whole file, please refer lseek_end.c
+	/* SEEK_END : fd will moved into end of the file
+	 * Get the number of character in a file 
 	 */
-	printf("%s\n",buf);
+	num_of_bytes = lseek(fd,-1,SEEK_END);
+	lseek(fd,0,SEEK_SET);//fd will point the starting position
+
+	while(num_of_bytes--)
+	{
+		/* read the file */
+		if( read(fd,&buf,sizeof(char))  < 0)
+			error_message("Unable to read the file");
+		printf("%c",buf);
+		lseek(fd,0,SEEK_CUR);//Moving char by char
+	}
+		
+	
 
 	/* Close the file */
 	close(fd);

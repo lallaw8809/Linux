@@ -1,0 +1,31 @@
+########### File Management ##############
+
+file_create.c : Program to create a file.
+		<./create> <file_name>
+file_write.c  : Program to write a text into a file.
+		<./write> <file_name> <text>
+file_append.c : Program to append a text into a file.
+		<./write> <file_name> <text_to_append>
+file_read.c   : Program to read a content in a file
+		<./read> <file_name>
+		Note:	
+			This will read a file upto Null terminate.
+
+*************** lseek *******************************************
+Sytex :
+	off_t lseek(int fd, off_t offset, int whence);
+	whence:
+		SEEK_SET
+		      The offset is set to offset bytes.
+	       SEEK_CUR
+		      The offset is set to its current location plus offset bytes.
+	       SEEK_END
+		      The offset is set to the size of the file plus offset bytes.
+
+lseek_set.c : Program to read a file using SEEK_SET command
+lseek_cur.c : Program to read a file using SEEK_CUR command
+lseek_end.c : Program to read a file using SEEK_END command
+leek.c      : Program to read a file usinng SEEK_SET, SEEK_CUR and SEEK_END
+
+
+

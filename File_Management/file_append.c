@@ -1,5 +1,6 @@
 /********************************************
- * Program to open or create a file and write 
+ * Program to open or create a file
+ * write and append the data into a file 
  * Author : Lal Bosco Lawrence   
  * Date   : 20-oct-2017 
  ********************************************/
@@ -25,8 +26,10 @@ void main(int argc, char *argv[])
 		exit(-1);	
 	}
 
-	/* Open the file, if exits or create a file */
-	if ((fd = open(argv[1],O_CREAT | O_WRONLY , 0777)) < 0 )
+	/* Open the file, if exits or create a file 
+	 * Data will be appended (O_APPEND)	
+	 */
+	if ((fd = open(argv[1],O_CREAT | O_WRONLY | O_APPEND, 0777)) < 0 )
 		error_message("Unable to crweate a file\n");
 
 	/* Write a data into a file */

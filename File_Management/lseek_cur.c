@@ -1,5 +1,5 @@
 /***********************************
- * Program to open file and read 
+ * Program to open file and read using lseek and SEEK_CUR
  * Author : Lal Bosco Lawrence   
  * Date   : 20-oct-2017 
  **********************************/
@@ -8,6 +8,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 void error_message(char *message);
 
@@ -17,8 +18,7 @@ void main(int argc, char *argv[])
 	char buf[BUFSIZ];
 
 	/* Validation of input */
-	if(argc != 2)
-	{
+	if(argc != 2){
 		printf("Invalid command\n");
 		printf("Usage : <./file_read> <file_path>\n");
 		exit(-1);	
@@ -28,14 +28,12 @@ void main(int argc, char *argv[])
 	if( (fd = open(argv[1], O_RDONLY, 0777)) < 0)
 		error_message("Unable to open the file.. Please check, if the file is exit");
 
-	/* read the file */
-	if( read(fd,buf,BUFSIZ ) < 0)
+        /* SEEK_CUR :  Moved based on the cuurent fd point position */
+	lseek(fd,5,SEEK_CUR);	
+	lseek(fd,3,SEEK_CUR); /* fd will point the 8 th char in a file (5+3) */
+	if( read(fd,buf,BUFSIZ)  < 0) /* read the file */
 		error_message("Unable to read the file");
-
-	/* this will terminate string with \0 
-	 * To read the whole file, please refer lseek_end.c
-	 */
-	printf("%s\n",buf);
+	printf("Print from 8th in a file...\n	%s\n",buf);
 
 	/* Close the file */
 	close(fd);
