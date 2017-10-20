@@ -20,4 +20,18 @@ mutex :
 		the 5 thread's tries to access the common resource at the same time.
 		Avoided the common resource corruption using mutex.
 
+pthread_barrier:
+	A barrier is a point where the thread is going to wait for other threads and 
+	will proceed further only, when predefined number of threads reach the same barrier 
+	in their respective programs. 
+
+	barrier.c : 1) Create  4 threads and all the threads are going to initalize the global variable.
+		    2) This global variable is used in all the threads
+		    3) So all the threads need to wait to complete global varibale initialization
+		    4) We can do this using barrier sychronization
+        Procedure to run the code.
+		<./barrier> //It will ask the user to ender the global variable input.
+			      Once user has entered all 4 global variable input.
+			      All the threads going to proceed further
+
 
