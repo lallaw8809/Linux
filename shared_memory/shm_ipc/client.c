@@ -1,3 +1,11 @@
+/*****************************************************
+ * Program to shared memory client
+ * 	Read the shared memory
+ * 	Update the shared memory to kill the server
+ *
+ * Author : Lal Bosco Lawrence   
+ * Date   : 20-oct-2017 
+ ******************************************************/
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -6,6 +14,8 @@
 
 #define SHM_SEGMENT_SIZE  100
 #define KEY               1234
+#define TERMINATE_SERVER  '*'
+#define PERMISSION	  0777
 
 void error_message(char *message);
 void main()
@@ -16,7 +26,7 @@ void main()
 	char *ptr;
 
 	/* Allocate a shared memory segment.  */ 
-	if( (shmid=shmget(key,SHM_SEGMENT_SIZE,0777) ) < 0 )
+	if( (shmid=shmget(key,SHM_SEGMENT_SIZE,PERMISSION) ) < 0 )
 		error_message("shmget failed\n");
 
 	/* Attach the shared memory segment.  */ 
@@ -32,9 +42,10 @@ void main()
 	printf("\n");
 
 	/* write it on shared memory to kill the server */
-	*shm = '*';
+	*shm = TERMINATE_SERVER;
 }
 
+/* Print the error message */
 void error_message(char *message)
 {
 	printf("%s\n",message);
