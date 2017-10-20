@@ -5,7 +5,7 @@
 
 /*
  Approach:
-	1) Create 4 threads and all the threads are going to initalize the global variable (4 values).
+	1) Create 4 threads and all the threads are going to initalize the global variable (id_values[4]).
 	2) This global variable is used in all the threads
 	3) So all the threads need to wait to complete global varibale initialization
 	4) We can do this using barrier sychronization
@@ -32,6 +32,7 @@ void *thread2();
 void *thread3();
 void *thread4();
 void error_message(int thread_id);
+void print_after_barrier_wait(int thread_num);
 
 void main() 
 {
@@ -39,7 +40,7 @@ void main()
 	pthread_attr_t attr;
 	int index;
 
-	/* Barier initialization */
+	/* Barrier initialization */
 	pthread_barrier_init(&our_barrier,NULL,BARRIER_WAIT_COUNT);
 
 	/* Thraed 1 creation */
@@ -73,24 +74,19 @@ void main()
 /* Thread 1 declaration */
 void *thread1() 
 {
-	int index ;
 	printf("Enter value for thread 1:  ");
 	scanf("%d",&id_value[0]);
 
 	/* a thread can be made to wait by the barrier */
 	pthread_barrier_wait(&our_barrier);
 	
-	printf("\nThread 1 is continue to executing after the barrier wait\n");
-	printf("	Values entered by the threads are : ");
-	for(index=0;index<THREAD_COUNT;index++)
-		printf(" %d",id_value[index]);
-	printf("\n");
+	/* This will exwcute after the affer the barrier wait*/
+	print_after_barrier_wait(1);
 }
 
 /* Thread 2 declaration */
 void *thread2() 
 {
-	int index ;
 	sleep(2);
 	printf("Enter value for thread 2 :  ");
 	scanf("%d",&id_value[1]);
@@ -98,17 +94,13 @@ void *thread2()
 	/* a thread can be made to wait by the barrier */
 	pthread_barrier_wait(&our_barrier);
 	
-	printf("\nThread 2 is continue to  executing after the barrier wait\n");
-	printf("	Values entered by the threads are : ");
-	for(index=0;index<THREAD_COUNT;index++)
-		printf(" %d",id_value[index]);
-	printf("\n");
+	/* This will exwcute after the affer the barrier wait*/
+	print_after_barrier_wait(2);
 }
 
 /* Thread 3 declaration */
 void *thread3() 
 {
-	int index ;
 	sleep(3);
 	printf("Enter value for thread 3:  ");
 	scanf("%d",&id_value[2]);
@@ -116,17 +108,13 @@ void *thread3()
 	/* a thread can be made to wait by the barrier */
 	pthread_barrier_wait(&our_barrier);
 	
-	printf("\nThread 3 is continue to executing after the barrier wait\n");
-	printf("	Values entered by the threads are : ");
-	for(index=0;index<THREAD_COUNT;index++)
-		printf(" %d",id_value[index]);
-	printf("\n");
+	/* This will exwcute after the affer the barrier wait*/
+	print_after_barrier_wait(3);
 }
 
 /* Thread 4 declaration */
 void *thread4()
 {
-	int index ;
 	sleep(4);
 	printf("Enter value for thread 4:  ");
 	scanf("%d",&id_value[3]);
@@ -134,11 +122,8 @@ void *thread4()
 	/* a thread can be made to wait by the barrier */
 	pthread_barrier_wait(&our_barrier);
 	
-	printf("\nThread 4 is continue to executing after the barrier wait\n");
-	printf("	Values entered by the threads are : ");
-	for(index=0;index<THREAD_COUNT;index++)
-		printf(" %d",id_value[index]);
-	printf("\n");
+	/* This will exwcute after the affer the barrier wait*/
+	print_after_barrier_wait(4);
 }
 
 /* Print the error message */
@@ -147,4 +132,18 @@ void error_message(int thread_id)
 	printf("Unable to create a thread : %d\n",thread_id);
 	exit(-1);
 }
+
+/* Print all the global variables after the pthread_wait() */
+void print_after_barrier_wait(int thread_num)
+{
+	int index;
+
+	printf("\nThread %d is continue to executing after the barrier wait\n",thread_num);
+	printf("	Values entered by the threads are : ");
+	for(index=0;index<THREAD_COUNT;index++)
+		printf(" %d",id_value[index]);
+	printf("\n");
+}
+
+
 
