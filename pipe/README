@@ -12,6 +12,14 @@ STDIN  (0) - Standard input (data fed into the program)
 STDOUT (1) - Standard output (data printed by the program, defaults to the terminal)
 STDERR (2) - Standard error (for error messages, also defaults to the terminal)
 
+Procedure to run the code
+--------------------------
+	$ make
+		This will creaate a binaries under bin directory
+
+	$make clean
+		This will clean the binaries
+
 Program :
 _________
 
@@ -22,15 +30,18 @@ one_pipe.c : Communication between the process [Parent and child :Half duplex]
 
 two_pipe.c : Communication between the process [Full duplex]
 	     Communication between two process using two pipes.
-	      Run the code  : ./one_chile   'Hello Parent'  'Hello child'
+	     Run the code  : ./one_chile   'Hello Parent'  'Hello child'
 
-Procedure to run the code
---------------------------
-	$ make
-		This will creaate a binaries under bin directory
+pread.c    : open the pipe and read the new process information 'uname -r' and
+	     write it on the buffer and print it on the terminal
 
-	$make clean
-		This will clean the binaries
+pwrite.c   : open the pipe and write the data into new process 'od -c' and
+	     print it on the terminal	
+
+
+ 
+
+
 
 
 
