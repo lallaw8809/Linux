@@ -1,0 +1,23 @@
+Shared Memeory
+
+Approach :
+-------------
+Server and client communication using shared memory
+Server :
+	Create a memory segment
+	Write the data into the share memory
+
+Client :
+	Read the shared memory.
+	Write the data into shared memory to kill the server.
+
+Procedure to run the code :
+----------------------------
+Server should be started before any client. 
+$./sever
+$./client
+
+To see the status of shared memory from terminal
+	$ipcs -m
+To destroy the allocated shared memory from terminal
+	$ipcrm -M <key>

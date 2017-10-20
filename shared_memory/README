@@ -1,0 +1,76 @@
+##################### Shared Memory #######################
+
+Shared memory :
+	Shared memory is the one of the simplest Inter Process Communication.
+	It allows one or more process to access the same memory address space (Logical memory).
+	When one process changes the memory, all the other processes see the modification.
+	Shared memory is the fastest interprocess communication because all processes share the same piece of memory.
+
+How does it Work:
+	To use a shared memory segment, one process must allocate the segment. 
+	Then each process desiring to access the segment must attach the segment.
+	After finishing its use of the segment, each process detaches the segment.
+	At some point, one process must deallocate the segment.
+
+Shared memory system calls :
+	int shmget(key_t key, size_t size, int shmflg);
+	void *shmat(int shm_id, const void *shm_addr, int shmflg);
+	int shmdt(const void *shm_addr);
+	int shmctl(int shm_id, int cmd, struct shmid_ds *buf);
+
+int shmget(key_t key, size_t size, int shmflg);
+	It is used to create a shared memory
+	key     : IPC_PRIVATE - created segment is private.
+	size    : Amount of the memory required in bytes
+	shmflag : Flag with permission
+		  IPC_CREAT  This flag indicates that a new segment should be created and 
+		 
+	Return  : Return the shared memory identifier
+		  Sucess : Non-negative value
+		  Fail   : -1
+
+void *shmat(int shm_id, const void *shm_addr, int shmflg);
+	To access to the shared memory,we must attach it to the address space of a process using shmat().
+	shm_id   : shared memory identifier returned from shmget.
+	shm_addr : Shared memory address at which the shared memory is to be attached to the current
+		   process.
+		   NULL - allows the system to choose the address at which the memory appears.
+	shmflg   : SHM_RDONLY - Memory is read only
+		   SHM_RND    - controls the address at which the shared memory is attached 
+	Return   : Success : Pointer to the first byte of shared memory
+		 : Fail    : -1
+
+int shmdt(const void *shm_addr)
+	Detaches the shared memory from the current process
+	Return   : Success : 0
+		 : Fail    : -1
+
+int shmctl(int shm_id, int cmd, struct shmid_ds *buf);
+	Control shared memory operation specified by cmd 
+	shm_id : shared memory identifier returned from shmget.
+	cmd    : IPC_STAT : read the information about shared memory via struct shmid_ds
+		 IPC_SET  : Write the value in the mmemor of the struct shmid_ds
+		 IPC_RMID : To destroy the segment
+	 struct shmid_ds  : Structure holds the information about the shared memory
+
+To see the status of shared memory from terminal
+	$ipcs -m
+To destroy the allocated shared memory from terminal
+	$ipcrm -M <key>
+
+Program :
+	
+shm.c : Program to shared memory
+	How to create a shared memory segment 
+	How to attach and deattach tne memory segmant
+
+
+
+
+
+
+
+
+
+
+
