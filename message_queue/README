@@ -2,6 +2,14 @@ Message Queue :
 	Message queues provide a way of sending a block of data from one process to another. Additionally, each
 block of data is considered to have a type, and a receiving process may receive blocks of data having different
 type values independently.
+
+send.c : Program to send the message into another process
+	 It will asks user to enter the 5 different messages
+	 Once user has endered the message it will send the message
+	 to another process.
+
+receive.c : Program to receive the message from the sender
+	    and print it on the terminal
 	
 Procedure to run the code :
 1) make Makefile
