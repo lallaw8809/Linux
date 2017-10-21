@@ -9,7 +9,9 @@
 #include <sys/msg.h>
 #include <stdlib.h>
 
-#define BUF_LEN 128
+#define BUF_LEN         128
+#define NUM_OF_MESSAGE    5
+#define KEY            1234
 
 struct msgbuf {
 	long mtype;       /* message type, must be > 0 */
@@ -25,7 +27,7 @@ void error_meassage(char *p)
 
 void main()
 {
-	key_t key = 1324;
+	key_t key = KEY;
 	int msgid;
 	struct msgbuf data;
 	int index;
@@ -36,7 +38,7 @@ void main()
 	}
 
 	/* Append the message one by one into a queue */
-	for(index=1;index<5;index++)
+	for(index=1;index<NUM_OF_MESSAGE+1;index++)
 	{
 		data.mtype = index;
 		printf("Enter the data\n");

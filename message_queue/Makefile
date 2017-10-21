@@ -3,5 +3,5 @@ all:send.c receive.c
 	gcc -o receive receive.c
 
 clean:
-	rm -rf send receive
+	rm -rf send receive *~
 
