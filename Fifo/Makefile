@@ -4,5 +4,5 @@ all:
 	gcc -o client client.c
 
 clean:
-	rm -rf create server client fifo_client  fifo_server
+	rm -rf create server client fifo_client  fifo_server *~
 

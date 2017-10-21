@@ -1,5 +1,9 @@
 Program to communicate between processes ( server and client ) using fifo IPC.
 
+create.c : Program to create a file server and client using mkfifo
+server.c : Read the request from the client and replied back to client
+client.c : Display message into terminal which replied by the server
+
 Approach :
   1) Create a fifo server and client using mkfifo system call (./create)
   2) Communicate between the processes (server and client)
