@@ -113,7 +113,7 @@ void *thread4()
 void *thread5() 
 {
  	pthread_mutex_lock(&mutex); /* Lock the resource using mutex */
-	critical_section(4);
+	critical_section(5);
  	pthread_mutex_unlock(&mutex); /* Unock the resource using mutex */
 }
 
