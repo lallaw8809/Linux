@@ -11,6 +11,15 @@ multithread  [Multi thread creation]
 	multithread_run_md2.c  : How to run multithread parraly (method 1)
 	
 mutex :
+	A mutex is provides a mutual exclution.
+	In multi-thread programming, two or more thread do not simultaneously 
+	execute some particular program segment known as critical section.
+	If two or more threads acess the critical section at the same time, the critical section
+	will be corrupted. We can avoid this problem using sychrization method.
+
+	When one thread starts executing the critical section the other thread should wait until 
+	he first thread finishes.
+
 	method_1.c : 	
 		Create 5 differnet pthread with same thread_function_name and all of the 5
 		thread's tries to access the common resource at the same time.
@@ -33,5 +42,35 @@ pthread_barrier:
 		<./barrier> //It will ask the user to ender the global variable input.
 			      Once user has entered all 4 global variable input.
 			      All the threads going to proceed further
+semaphore:
+	Semaphore is used to syncronize the process.
+	There are two types of semaphore
+	1. Binary Semaphore [ 0 or 1 ]
+	2. Counting Semaphore
+
+binary_semaphore:
+	It is a special form of semaphore used for implementing mutual exclusion,
+	hence it is often called Mutex.
+	A binary semaphore is initialized to 1 and only takes the value 0 and 1 
+	during execution of a program.
+
+	binary_semaphore.c  : Shows that how to use binary semaphore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
