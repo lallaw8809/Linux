@@ -1,7 +1,7 @@
 Message Queue :
-	Message queues provide a way of sending a block of data from one process to another. Additionally, each
-block of data is considered to have a type, and a receiving process may receive blocks of data having different
-type values independently.
+	Message queues provide a way of sending a block of data from one process to another. 
+Additionally, each block of data is considered to have a type, and a receiving process may
+receive blocks of data having different type values independently.
 
 send.c : Program to send the message into another process
 	 It will asks user to enter the 5 different messages
