@@ -13,7 +13,7 @@
 #include <sys/shm.h> 
 #include <sys/stat.h>
 
-#define SHM_SEGMENT_SIZE  0x6400
+#define SHM_SEGMENT_SIZE  100 /* bytes */
 #define STRING            "Hello World"
 
 void error_message(char *message);
@@ -29,11 +29,11 @@ int main()
 	if(shmid < 0)
 		error_message("shmget is failed");
 
-	/* To enable the access for shared memory */
+	/* To Attach for shared memory */
 	shared_mem = shmat(shmid,NULL,0);
 	if(shared_mem == (char*) -1)
 		error_message("shmat is failed");
-	printf("Shared Mmemory attached address space = %p\n",shared_mem);
+	printf("Shared Memory attached address space = %p\n",shared_mem);
 
 	/* Write data into a shared memory */
 	memcpy(shared_mem, STRING, strlen(STRING) );

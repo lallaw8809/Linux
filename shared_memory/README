@@ -24,7 +24,7 @@ int shmget(key_t key, size_t size, int shmflg);
 	key     : IPC_PRIVATE - created segment is private.
 	size    : Amount of the memory required in bytes
 	shmflag : Flag with permission
-		  IPC_CREAT  This flag indicates that a new segment should be created and 
+		  IPC_CREAT  This flag indicates that a new segment should be created.
 		 
 	Return  : Return the shared memory identifier
 		  Sucess : Non-negative value
