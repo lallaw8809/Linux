@@ -1,5 +1,5 @@
 /* Program to create a new process (child process)
- * author : Lal Bosco Lawrence   
+ * Author : Lal Bosco Lawrence   
  * Date   : 18-oct-2017
  */
 
