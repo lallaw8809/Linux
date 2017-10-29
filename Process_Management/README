@@ -1,4 +1,4 @@
-###################### Process Management ###############################
+################################ Process Management ###################################
 
 Create a new process
 --------------------
@@ -10,7 +10,7 @@ create_new_process
 		clone_1.c : Create a new process as vfork
 		clone_2.c : Create a new process as thread
 			    Parent and Child run concurrently (thread)
-___________________________________________________________________________________________________________
+______________________________________________________________________________________________
 daemon_process
 ---------------
 	daemon.c : Create a daemon process and run it in background
@@ -30,12 +30,12 @@ daemon_process
 	*)To stop the daemon process
 		ps -ef | grep daemon
 		kill -9 <pid_of_daemon>
-_____________________________________________________________________________________________________________
+____________________________________________________________________________________________
 
 process_id
 ----------
 	process_id.c : Print the lsit of process id's
-_____________________________________________________________________________________________________________
+____________________________________________________________________________________________
 
 wait, waitpid - wait for process to change state
 ------------------------------------------------
@@ -48,18 +48,18 @@ System call
 	wait.c     : Progam to Parent to wait for child to complete its execution
 	zombie.c   : Progrm for zombie [ Child enters into Zombie state]
 	waitpid.c  : 
-______________________________________________________________________________________________________________________
-
+___________________________________________________________________________________________
 Exe Family
 -----------
-       Each system call (exec) is the word exec followed by either l or v and then possibly followed by either e or p.
+       Each system call (exec) is the word exec followed by either l or v and then possibly 
+followed by either e or p.
        int execl ( const char *path, const char *arg, ... );
        int execlp( const char *file, const char *arg, ... );
        int execle( const char *path, const char *arg, ..., char *const envp[] );
        int execv ( const char *path, char *const argv[] );
        int execvp( const char *file, char *const argv[] );
        int execve( const char *file, char *const argv[], char *const envp[] );
-_________________________________________________________________________________________________________________________
+__________________________________________________________________________________________
 
 
 	
