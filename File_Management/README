@@ -1,4 +1,4 @@
-########### File Management ##############
+###################### File Management ##############################
 
 file_create.c : Program to create a file.
 		<./create> <file_name>
@@ -10,8 +10,20 @@ file_read.c   : Program to read a content in a file
 		<./read> <file_name>
 		Note:	
 			This will read a file upto Null terminate.
+------------------------------------------------------------------------------------
+file_types:
+	In linux, there are 7 different file types are avilable,
+	- : regular file
+	d : directory
+	c : character device file
+	b : block device file
+	s : local socket file
+	p : named pipe
+	l : symbolic link
 
-*************** lseek *******************************************
+	file_type.c : Program to get the types of the file
+
+******************************* lseek ****************************************************
 Sytex :
 	off_t lseek(int fd, off_t offset, int whence);
 	whence:
@@ -26,6 +38,36 @@ lseek_set.c : Program to read a file using SEEK_SET command
 lseek_cur.c : Program to read a file using SEEK_CUR command
 lseek_end.c : Program to read a file using SEEK_END command
 leek.c      : Program to read a file usinng SEEK_SET, SEEK_CUR and SEEK_END
+
+************************************ stat *************************************************
+Get the information abour the file.
+--------------------------------------------------------------------------
+|     stat/lstat                  |           fstat                      |
+--------------------------------------------------------------------------
+| *) status of the file system    | *) status of the file system	 |
+|    and directories              |    					 |
+| *) Takes argument as file path  | *) Takes argument as file descriptor |
+--------------------------------------------------------------------------
+
+stat follows symlinks. When given a path that is a symlink, it returns the stat of the target of the symlink.
+lstat doesn't follow symlinks. When given a path that is a symlink it returns the stat of the symlink and not 
+its target.
+
+fstat takes a file descriptor rather than a path.
+
+System call:
+	int stat(const char *path, struct stat *buf);
+	int fstat(int fd, struct stat *buf);
+	int lstat(const char *path, struct stat *buf);
+
+
+	
+ 
+
+stat.c  : Sample code for to get the status of the file using stat()  
+lstat.c : Sample code for to get the status of the file using lstat() 
+fstat.c : Sample code for to get the status of the file using fstat() 
+
 
 
 
