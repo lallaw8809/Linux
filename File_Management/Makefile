@@ -8,6 +8,9 @@ all:
 	gcc -o bin/seek_cur  lseek_cur.c
 	gcc -o bin/seek_end  lseek_end.c
 	gcc -o bin/file_type file_type.c
+	gcc -o bin/fstat     fstat.c
+	gcc -o bin/lstat     lstat.c
+	gcc -o bin/stat      stat.c
 
 clean:
 	rm -rf *~

@@ -10,18 +10,6 @@ file_read.c   : Program to read a content in a file
 		<./read> <file_name>
 		Note:	
 			This will read a file upto Null terminate.
-------------------------------------------------------------------------------------
-file_types:
-	In linux, there are 7 different file types are avilable,
-	- : regular file
-	d : directory
-	c : character device file
-	b : block device file
-	s : local socket file
-	p : named pipe
-	l : symbolic link
-
-	file_type.c : Program to get the types of the file
 
 ******************************* lseek ****************************************************
 Sytex :
@@ -39,35 +27,51 @@ lseek_cur.c : Program to read a file using SEEK_CUR command
 lseek_end.c : Program to read a file using SEEK_END command
 leek.c      : Program to read a file usinng SEEK_SET, SEEK_CUR and SEEK_END
 
+------------------------------------------------------------------------------------
+file_types:
+	In linux, there are 7 different file types are avilable,
+	- : regular file
+	d : directory
+	c : character device file
+	b : block device file
+	s : local socket file
+	p : named pipe
+	l : symbolic link
+
+	file_type.c : Program to get the types of the file
+
 ************************************ stat *************************************************
 Get the information abour the file.
---------------------------------------------------------------------------
-|     stat/lstat                  |           fstat                      |
---------------------------------------------------------------------------
-| *) status of the file system    | *) status of the file system	 |
-|    and directories              |    					 |
-| *) Takes argument as file path  | *) Takes argument as file descriptor |
---------------------------------------------------------------------------
-
-stat follows symlinks. When given a path that is a symlink, it returns the stat of the target of the symlink.
-lstat doesn't follow symlinks. When given a path that is a symlink it returns the stat of the symlink and not 
-its target.
-
-fstat takes a file descriptor rather than a path.
 
 System call:
 	int stat(const char *path, struct stat *buf);
 	int fstat(int fd, struct stat *buf);
 	int lstat(const char *path, struct stat *buf);
 
+------------------------------------------------------------------------------
+|          stat/lstat                 |           fstat                      |
+------------------------------------------------------------------------------
+| *) status of the file system        | *) status of the file system	     |
+|    and directories                  |    			             |
+| *) Takes argument as file path      | *) Takes argument as file descriptor |
+| *) File permission is not required. | *) File Permission is required       |
+------------------------------------------------------------------------------
 
+stat vs lstat:
+	The lstat() function has the same effect as stat(),
+	except when the specified path refers to a symbolic link.
+	In symbolic link file,
+	stat  : refers a symbalic lined file
+	lstat : refers a symbalic file
+Example : ln -s f1 soft_link
+	  soft_link -> f1
 	
- 
+	  soft_link : lstat(soft_link)
+	  f1        : stat(soft_link)
 
 stat.c  : Sample code for to get the status of the file using stat()  
 lstat.c : Sample code for to get the status of the file using lstat() 
 fstat.c : Sample code for to get the status of the file using fstat() 
-
-
+------------------------------------------------------------------------------------------------------------
 
 

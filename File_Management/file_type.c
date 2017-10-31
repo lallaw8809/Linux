@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 		exit(-1);
 	}
 
-	/* Get the status of teh file */
+	/* Get the status of the file */
 	if (lstat(argv[1], &statbuf)){
 		printf("Unable to get the file status\n");
 		exit(-1);
@@ -48,8 +48,8 @@ int main(int argc, char *argv[])
 		printf("%s is a Socket file\n", argv[1]);
 
 #else
-	printf("File type:                ");
 
+	printf("File type:                ");
 	switch (statbuf.st_mode & S_IFMT) 
 	{
 		case S_IFBLK:  printf("block device\n");            break;
