@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 
 	/* open the file */
 	int fd =open(argv[1],O_RDWR,0777);
+	/* fstat() stats the file pointed to by path and fills in buf. */
 	if (fstat(fd, &sb) == -1){
 		printf("fstat is failed\n");
 		exit(-1);

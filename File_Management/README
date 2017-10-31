@@ -72,6 +72,6 @@ Example : ln -s f1 soft_link
 stat.c  : Sample code for to get the status of the file using stat()  
 lstat.c : Sample code for to get the status of the file using lstat() 
 fstat.c : Sample code for to get the status of the file using fstat() 
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
 
 

@@ -27,7 +27,8 @@ int main(int argc, char **argv)
 		exit(-1);
 	}
 
-	if (lstat(argv[1], &statbuf)) {
+	/* stat() stats the file pointed to by path and fills in buf. */
+	if (stat(argv[1], &statbuf)) {
 		printf("stat is failed\n");
 		exit(-1);
 	} 
