@@ -27,7 +27,7 @@ lseek_cur.c : Program to read a file using SEEK_CUR command
 lseek_end.c : Program to read a file using SEEK_END command
 leek.c      : Program to read a file usinng SEEK_SET, SEEK_CUR and SEEK_END
 
-------------------------------------------------------------------------------------
+----------------------------- File Types --------------------------------------------------
 file_types:
 	In linux, there are 7 different file types are avilable,
 	- : regular file
@@ -38,7 +38,20 @@ file_types:
 	p : named pipe
 	l : symbolic link
 
-	file_type.c : Program to get the types of the file
+	file_type.c        : Program to get the types of the file
+	file_create_type.c : Program to create a different types of file
+
+Procedure to create a file:	
+	Create file types (-,d,c,b,s and p)
+		<./file_creat_type> <file_name>
+	Link :
+	1)Soft Link
+		<./file_creat_type> <file> <link_file>
+	   Example: link_file is linked with a file
+		link_file -> file
+	2) Hard Link
+		<./file_creat_type> <file> <link_file>
+	   Example : file and link_file holds the same inode number
 
 ************************************ stat *************************************************
 Get the information abour the file.
