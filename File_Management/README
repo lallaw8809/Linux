@@ -1,5 +1,12 @@
-###################### File Management ##############################
+######################## File Management ##############################
 
+File      : Holds the program for file Creation, Read, Write and Append.
+File_type : Creation of different types of file creation.
+Seek      : Read the file at specific offset.
+Stat      : Get the statistics of the file.
+Dup       : Creation and usage of duplicate file descriptor.
+
+####################### File ##########################################
 File Descriptor :
 -----------------
 	fd is a non-negative number.
@@ -24,23 +31,7 @@ file_read.c   : Program to read a content in a file
 		Note:	
 			This will read a file upto Null terminate.
 
-******************************* lseek ****************************************************
-Sytex :
-	off_t lseek(int fd, off_t offset, int whence);
-	whence:
-		SEEK_SET
-		      The offset is set to offset bytes.
-	       SEEK_CUR
-		      The offset is set to its current location plus offset bytes.
-	       SEEK_END
-		      The offset is set to the size of the file plus offset bytes.
-
-lseek_set.c : Program to read a file using SEEK_SET command
-lseek_cur.c : Program to read a file using SEEK_CUR command
-lseek_end.c : Program to read a file using SEEK_END command
-leek.c      : Program to read a file usinng SEEK_SET, SEEK_CUR and SEEK_END
-
------------------------------ File Types --------------------------------------------------
+############################### File Types #############################################
 file_types:
 	In linux, there are 7 different file types are avilable,
 	- : regular file
@@ -65,8 +56,25 @@ Procedure to create a file:
 	2) Hard Link
 		<./file_creat_type> <file> <link_file>
 	   Example : file and link_file holds the same inode number
+----------------------------------------------------------------------------------------
+############################# Seek ####################################################
+Sytex :
+-------
+	off_t lseek(int fd, off_t offset, int whence);
+	whence:
+		SEEK_SET
+		      The offset is set to offset bytes.
+	       SEEK_CUR
+		      The offset is set to its current location plus offset bytes.
+	       SEEK_END
+		      The offset is set to the size of the file plus offset bytes.
 
-************************************ stat *************************************************
+lseek_set.c : Program to read a file using SEEK_SET command
+lseek_cur.c : Program to read a file using SEEK_CUR command
+lseek_end.c : Program to read a file using SEEK_END command
+leek.c      : Program to read a file usinng SEEK_SET, SEEK_CUR and SEEK_END
+
+############################# Stat #################################################
 Get the information abour the file.
 
 System call:
@@ -98,8 +106,8 @@ Example : ln -s f1 soft_link
 stat.c  : Sample code for to get the status of the file using stat()  
 lstat.c : Sample code for to get the status of the file using lstat() 
 fstat.c : Sample code for to get the status of the file using fstat() 
--------------------------------------------------------------------------------------------
-**************************** dup *************************************************
+
+################################# Dup #####################################################
 	*) dup, dup2, dup3 - duplicate a file descriptor
 	*) dup() uses the lowest-numbered unused descriptor for the new descriptor.
 	*) dup2() and dup3() makes newfd be the copy of oldfd.

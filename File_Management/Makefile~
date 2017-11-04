@@ -8,7 +8,7 @@ all:
 	gcc -o Seek/seek_cur  		Seek/lseek_cur.c
 	gcc -o Seek/seek_end  		Seek/lseek_end.c
 	gcc -o Stat/fstat     		Stat/fstat.c
-	gcc -o Stat/lstat     		Stat/lstat.c
+	gcc -o Stat/lstat     		Stat/lstat.c	
 	gcc -o Stat/stat      		Stat/stat.c
 	gcc -o Dup/dup			Dup/dup.c
 	gcc -o Dup/dup2			Dup/dup2.c
