@@ -46,8 +46,10 @@ System call
 	int waitid(idtype_t idtype, id_t id, siginfo_t * infop , int options );
 
 	wait.c     : Progam to Parent to wait for child to complete its execution
+		     using wait()
 	zombie.c   : Progrm for zombie [ Child enters into Zombie state]
-	waitpid.c  : 
+	waitpid.c  : Progam to Parent to wait for child to complete its execution
+		     using waitpid()
 ___________________________________________________________________________________________
 Exe Family :
 -----------
@@ -61,7 +63,7 @@ Exe Family :
 	|    |    - 	|   e	 |   p	  |
 	-----------------------------------
 	| l  |	execl 	| execle | execlp |
-	-----------------------------------	
+	-----------------------------------
 	| v  |	execv 	| execve | execvp |
 	-----------------------------------
 

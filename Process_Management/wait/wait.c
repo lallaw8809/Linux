@@ -1,5 +1,5 @@
 /****************************************************
- * Program to wait the parent and chile creation
+ * Program to wait() using fork()
  * Author : Lal Bosco Lawrence   
  * Date   : 29-oct-2017
  ***************************************************/
@@ -37,11 +37,16 @@ int main()
 		printf("	PPID : %d\n",getppid() );
 		
 		printf("I am a parent, waiting for child to end...\n\n");
-		/* waiting to child complete its execution */
-		wait(&status);
+
+		/* waiting to child to complete its execution
+		 * [ waitpid(-1, &status, 0) equivalent to wait(&status) ]	
+		 */
+		wait(&status);  
+		
 		printf("Parent End\n");
 	}
 
 	return 0;
 }
+
 

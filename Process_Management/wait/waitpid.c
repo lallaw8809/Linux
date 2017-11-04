@@ -1,42 +1,65 @@
-#include <sys/wait.h>
+/****************************************************
+ * Program to waitpid()
+ * Author : Lal Bosco Lawrence   
+ * Date   : 29-oct-2017
+ ***************************************************/
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 
-void  err_sys(char *msg)
+/* In fork, Parent will execute first and followed by child will execute
+ * Parent do not wait, child to complete its execution
+ * 
+ * By using waitpid() API,We can make Parent to wait for child to complete its
+ * execution
+ */
+
+void  err_msg(char *msg);
+
+int main()
+{
+	int status;
+	pid_t pid;
+
+	/* Create a process */
+	   if ((pid = fork()) < 0) {
+        	err_msg("fork error");
+	}
+
+	/* Child process */
+	if(pid == 0){
+		sleep(5);
+		printf("Child Process [Return value is 0]\n");
+		printf("	PID  : %d\n",getpid() );
+		printf("	PPID : %d\n",getppid() );
+		printf("Child End\n\n");
+	}
+	else{ /* Parent process */
+		printf("Parent Process [Return value is child PID]\n");
+		printf("	PID  : %d\n",getpid() );
+		printf("	PPID : %d\n",getppid() );
+		
+		printf("I am a parent, waiting for child to end...\n\n");
+
+		/* waiting to child to complete its execution
+                 * Make the parent to wait using child pid
+		 * [ pid == child_pid ]	
+		 */
+		if (waitpid(pid, &status, 0) != pid)
+			err_msg("waitpid error\n"); 
+
+		printf("Parent End\n");
+	}
+
+	return 0;
+}
+
+/* Print the error message */
+void  err_msg(char *msg)
 {
 	printf("%s\n",msg);
 	exit(-1);
 }
 
-int main(void)
-{
-    pid_t   pid;
 
-    if ((pid = fork()) < 0) {
-        err_sys("fork error");
-    } else if (pid == 0) {     /* first child */
-        if ((pid = fork()) < 0)
-            err_sys("fork error");
-        else if (pid > 0)
-            exit(0);    /* parent from second fork == first child */
-        /*
-         * We're the second child; our parent becomes init as soon
-         * as our real parent calls exit() in the statement above.
-         * Here's where we'd continue executing, knowing that when
-         * we're done, init will reap our status.
-         */
-        sleep(2);
-        printf("second child, parent pid = %d\n", getppid());
-        exit(0);
-    }
-    
-    if (waitpid(pid, NULL, 0) != pid)  /* wait for first child */
-        err_sys("waitpid error");
-
-    /*
-     * We're the parent (the original process); we continue executing,
-     * knowing that we're not the parent of the second child.
-     */
-    exit(0);
-}

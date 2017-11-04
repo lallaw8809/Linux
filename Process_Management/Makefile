@@ -6,6 +6,7 @@ all:
 	gcc -o daemon_process/daemon    	daemon_process/daemon.c
 	gcc -o process_id/process_id   		process_id/process_id.c
 	gcc -o wait/wait	   		wait/wait.c
+	gcc -o wait/wait_pid	   		wait/waitpid.c
 	gcc -o wait/zombie	   		wait/zombie.c
 	gcc -o exe_family/execl                 exe_family/execl.c
 	gcc -o exe_family/execle                exe_family/execle.c
@@ -21,7 +22,7 @@ clean:
 	rm -rf create_new_process/*~
 	rm -rf daemon_process/daemon      daemon_process/daemon.txt
 	rm -rf process_id/process_id
-	rm -rf wait/wait  wait/*~	  wait/zombie
+	rm -rf wait/wait  wait/*~	  wait/zombie wait/wait_pid
 	rm -rf exe_family/execl  	  exe_family/execle  exe_family/execlp
 	rm -rf exe_family/execv  	  exe_family/execvp  exe_family/execvpe
 	rm -rf exe_family/exe_family exe_family/*~

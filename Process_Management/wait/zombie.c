@@ -1,5 +1,5 @@
 /****************************************************
- * Program to show zombie state
+ * Program for zombie state
  * Author : Lal Bosco Lawrence   
  * Date   : 29-oct-2017
  ***************************************************/
@@ -12,7 +12,7 @@
  * Parent do not wait, child to complete its execution
  * 
  * Parent exit before child end and child become an orfan
- * Child is enter into a zombie state
+ * Child enters into a zombie state
  */
 int main()
 {
@@ -37,7 +37,7 @@ int main()
 		printf("	PPID : %d\n",getppid() );
 		
 		printf("Parent is End, before child end \n");
-		printf("Child will be a orfan now and enter into Zombie state\n");
+		printf("Child will be a orfan now and enters into Zombie state\n");
 	}
 
 	return 0;
