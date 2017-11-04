@@ -1,5 +1,18 @@
 ###################### File Management ##############################
 
+File Descriptor :
+-----------------
+	fd is a non-negative number.
+		------------------
+		| file descriptor |
+		-------------------
+		|  0 | Stdin (R)  |
+		-------------------
+		|  1 | Stdout (W) |
+		-------------------
+		|  2 | Stderr (R) |
+		-------------------
+
 file_create.c : Program to create a file.
 		<./create> <file_name>
 file_write.c  : Program to write a text into a file.
@@ -86,5 +99,20 @@ stat.c  : Sample code for to get the status of the file using stat()
 lstat.c : Sample code for to get the status of the file using lstat() 
 fstat.c : Sample code for to get the status of the file using fstat() 
 -------------------------------------------------------------------------------------------
+**************************** dup *************************************************
+	*) dup, dup2, dup3 - duplicate a file descriptor
+	*) dup() uses the lowest-numbered unused descriptor for the new descriptor.
+	*) dup2() and dup3() makes newfd be the copy of oldfd.
 
+System Call:
+	int dup(int oldfd);
+	int dup2(int oldfd, int newfd);
+	int dup3(int oldfd, int newfd, int flags);
+
+Program :
+	dup.c  : Sapmle code for dup() system call
+	dup2.c : Sapmle code for dup2() system call
+	dup3.c : Sapmle code for dup3() system call
+
+--------------------------------------------------------------------------------------------
 

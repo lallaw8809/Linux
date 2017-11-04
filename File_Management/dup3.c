@@ -1,44 +1,56 @@
-#include <fcntl.h>              /* Obtain O_* constant definitions */
+/***********************************************
+ * Program to dup3()
+ *
+ * Author : Lal Bosco Lawrence
+ * Date   : 31-oct-2017
+ ************************************************/
+
+#include <fcntl.h>
 #include <unistd.h>
 #include <unistd.h>
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-/*
-DESCRIPTION
+#define BUZ_SIZE   1023
+#define PERMISSION 0777
 
-dup and dup2 create a copy of the file descriptor oldfd.
-After successful return of dup or dup2, the old and new descriptors may
-be used interchangeably. They share locks, file position pointers and
-flags; for example, if the file position is modified by using lseek on
-one of the descriptors, the position is also changed for the other.
+/* dup3() is the same as dup2(), except it takes a flag*/
 
-The two descriptors do not share the close-on-exec flag, however.
-
-dup uses the lowest-numbered unused descriptor for the new descriptor.
-
-dup2 makes newfd be the copy of oldfd, closing newfd first if necessary.  
-
-RETURN VALUE
-
-dup and dup2 return the new descriptor, or -1 if an error occurred 
-(in which case, errno is set appropriately). 
-*/
-
-main()
+int main(int argc, char *argv[])
 {
+	int fd,new_fd;
+	char buf[BUZ_SIZE] = "dup3 : I am writing into a file\n";
 
- // int dup2(int oldfd, int newfd);
-  //int dup3(int oldfd, int newfd, int flags);
+	/* Validation of input */
+	if(argc != 2){
+		printf("Invalid command...\n");
+		printf("Usage : <%s> <file_name>\n",argv[0]);
+		exit(-1);
+	}
 
-	int fd1,fd2;
-	char buf[1023];
+	printf("dup3 : Write a data into a file using STDOUT and dup fd...\n");
+	printf("To read a file, please usse the following command\n");
+	printf("cat %s\n",argv[1]);
+	sleep(2);
 
-	fd1 = open("open.c",O_RDONLY,777);
-	dup3(fd1,fd2);  //(old,new)
-	read(fd2,buf,1023);
-	printf("%s",buf);
+	/* Open the file */
+	fd     = open(argv[1],O_RDWR|O_CREAT,PERMISSION);
+	if(fd<0){
+		printf("Unable to [%s] open or create is failed\n",argv[1]);
+		exit(-1);
+	}
 
-	close(fd1);
-	close(fd2);
+	/* Duplicate fd using dup3() */
+	new_fd = dup3(fd,1,O_CLOEXEC);  //(old,new)
+
+	/* Write a data into a file */
+	write(new_fd,buf,strlen(buf));
+
+	/* Close the file */
+	close(fd);
+	close(new_fd);
+
+	return 0;
 }
 

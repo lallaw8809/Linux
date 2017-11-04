@@ -12,6 +12,9 @@ all:
 	gcc -o bin/lstat     		lstat.c	
 	gcc -o bin/stat      		stat.c
 	gcc -o bin/file_type_creat	file_create_type.c
+	gcc -o bin/dup			dup.c
+	gcc -o bin/dup2			dup2.c
+	gcc -o bin/dup3			dup3.c
 
 clean:
 	rm -rf *~
