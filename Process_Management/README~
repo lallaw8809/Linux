@@ -51,7 +51,7 @@ System call
 ___________________________________________________________________________________________
 Exe Family :
 -----------
-	*) Exec family of functions replaces the current program with a new program.
+       	*) Exec family of functions replaces the current program with a new program.
 	*) The exec() call replaces the entire current contents of the process with a new program.
 	   It loads the program into the current process space and runs it from the entry point.
         *) Each system call (exec) is the word exec followed by either l or v and then possibly 
