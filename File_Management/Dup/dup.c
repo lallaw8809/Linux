@@ -16,7 +16,7 @@
 /* The dup() creates a copy of a file descriptor.
  * It uses the lowest-numbered unused file descriptor for the new descriptor.
  * If the copy is successfully created, then the original (fd) and copy file
-   descriptors (copy_fdf) may be used interchangeably.
+   descriptors (copy_fd) may be used interchangeably.
  * They both refer to the same open file description and thus share file offset and
    file status flags.
 */

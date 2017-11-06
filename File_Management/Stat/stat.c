@@ -54,8 +54,8 @@ int main(int argc, char **argv)
 	printf("I-node number is          : %ld\n",(long) statbuf.st_ino);
 
 	/* Get the User and Group name */
-	struct passwd *user  = getpwuid(statbuf.st_uid);
-	struct group  *group = getgrgid(statbuf.st_gid);
+	struct passwd *user  = getpwuid(statbuf.st_uid); //user name
+	struct group  *group = getgrgid(statbuf.st_gid); //group name
 	printf("User Name                 : %s\n",user->pw_name);
 	printf("Group Name                : %s\n",group->gr_name);
 
