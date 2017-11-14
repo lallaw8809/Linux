@@ -1,0 +1,20 @@
+System call for lseek :
+----------------------
+	off_t lseek(int fd, off_t offset, int whence);
+
+fd     : File Descriptor
+offset : Position to move the fd in a file.
+whence :
+	SEEK_SET
+		The offset is set to offset bytes.
+	SEEK_CUR
+		The offset is set to its current location plus offset bytes.
+	SEEK_END
+		The offset is set to the size of the file plus offset bytes.
+Return :
+--------
+	Sucess : fd location (offset) as measured in bytes from the beginning of the file.
+	Fail   : -1
+
+REF : man lseek
+
