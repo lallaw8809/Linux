@@ -1,0 +1,69 @@
+File related system calls:
+--------------------------
+Create a file:
+--------------
+       int creat(const char *pathname, mode_t mode);
+
+Open the file:
+--------------
+       int open(const char *pathname, int flags); //if file exists
+       int open(const char *pathname, int flags, mode_t mode);
+
+pathname :
+---------
+	Path to file name
+
+Flags:
+------
+	O_RDONLY, O_WRONLY,O_RDWR,O_APPEND
+
+	O_CREAT  : create a file, if not exists
+	O_RDONLY : File is opened in read only mode
+	O_WRONLY : File is opened in write only mode
+	O_RDWD   : File is opened in read and write mode
+	O_APPEND : The file is opened in append mode.
+
+Mode :
+-----
+	Permission to the file.
+	Read    (r)
+	Write   (w)
+	Execute (e)
+
+	user | Group | Others
+	-----  -----  -------
+	 rwx    rwx     rwx
+
+Return :
+--------
+	Sucess : File descriptor
+	Fail   : -1
+--------------------------------------------------------------------------------------
+
+Read a file : read() attempts to read up to count bytes from file descriptor fd into 
+------------- the buffer starting at buf.
+
+	      ssize_t read(int fd, void *buf, size_t count);
+
+Write into a file : write() writes up to count bytes from the buffer pointed
+-----------------   buf to the file referred to by the file descriptor fd.
+
+	      ssize_t write(int fd, const void *buf, size_t count);
+fd :
+----
+	File descriptor
+
+buf :
+-----
+	write : what we want to write
+	read  : Buffer holds the read data from the file
+
+count :
+-------
+	Number of character want to read or write
+
+Return :
+--------
+	Sucess : Number of character has been written or read
+	Fail   : -1
+
