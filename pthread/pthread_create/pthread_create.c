@@ -11,7 +11,8 @@
 void* thread_function(void *arg)
 {
 	printf("Enter into thread...\n");
-	return NULL;
+	/* Kill the thread */
+	//pthread_exit(NULL);
 }
 
 int main()
@@ -33,6 +34,9 @@ int main()
 	
 	/* wait until the created thread to terminate */
 	pthread_join(tid, NULL);
+
+	/* Kill the thread */
+	pthread_cancel(tid);
 
 	return 0;
 }
