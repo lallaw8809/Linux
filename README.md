@@ -7,17 +7,17 @@ Procoss_management : Process realated sample code
 ## Linux Internals
 
 PIPE          : Program to communicate between process using pipe.  
-`pipe()`
+`pipe()`  
 FIFO          : Program to communicate between processes( server and client ) using fifo IPC.  
-`mkfifo()`
+`mkfifo()`  
 Message_Queue : Program to communicate between process using messge queue.  
-`msgget(),msgsnd(),msgrcv(),msgctl(),`
+`msgget(),msgsnd(),msgrcv(),msgctl(),`  
 Shared_Memory : Sample code shared memory.  
-`shmget(),shmat(),shmdt(),shmctl()`
+`shmget(),shmat(),shmdt(),shmctl()`  
 Semaphore     : Sample code for binary and counting Semaphore  
-`semget(),semop(),semctl()`
+`semget(),semop(),semctl()`  
 Signal        : Sample code for signal.  
-`siginr,sigterm`
+`siginr,sigterm`  
 
 # Linux Thread
 
