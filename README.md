@@ -23,6 +23,4 @@ Signal        : Sample code for signal.
 
 pthread : Thread related sample code  
 
-Embedded Book link:  
-https://github.com/amitkumar3968/tech-books-pdf/tree/master/Linux  
 
